@@ -1,14 +1,6 @@
 package org.example.storage.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.example.storage.model.enums.Role;
-import org.example.storage.model.enums.Status;
-import org.springframework.security.core.GrantedAuthority;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,8 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Collection;
-import java.util.List;
+
+import org.example.storage.model.enums.Role;
+import org.example.storage.model.enums.Status;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -46,7 +45,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @JsonIgnore
+//    @JsonIgnore
     @Column(name = "secret_password")
     private String password;
 
