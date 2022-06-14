@@ -6,5 +6,5 @@ create table events
     file_id     BIGINT,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-    FOREIGN KEY (file_id) REFERENCES files (id)
+    FOREIGN KEY (file_id) REFERENCES files (id) ON DELETE CASCADE
 );

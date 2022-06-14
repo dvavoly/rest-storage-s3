@@ -15,12 +15,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration {
+public class SecurityConfig {
 
     private final UserDetailsService userDetailsService;
 
     @Autowired
-    public SecurityConfiguration(UserDetailsService userDetailsService) {
+    public SecurityConfig(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -30,9 +30,12 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/**").hasAuthority(Permission.USERS_READ.getPermission())
-//                .antMatchers(HttpMethod.POST, "/api/**").hasAuthority(Permission.USERS_WRITE.getPermission())
-//                .antMatchers(HttpMethod.DELETE, "/api/**").hasAuthority(Permission.USERS_WRITE.getPermission())
+                .antMatchers(HttpMethod.GET, "/api/v1/files/**").hasAuthority(Permission.FILES_READ.getPermission())
+                .antMatchers(HttpMethod.POST, "/api/v1/files/**").hasAuthority(Permission.FILES_WRITE.getPermission())
+                .antMatchers(HttpMethod.GET, "/api/v1/users/**").hasAuthority(Permission.USERS_READ.getPermission())
+                .antMatchers(HttpMethod.POST, "/api/v1/users/**").hasAuthority(Permission.USERS_WRITE.getPermission())
+                .antMatchers(HttpMethod.GET, "/api/v1/events/**").hasAuthority(Permission.EVENTS_READ.getPermission())
+                .antMatchers(HttpMethod.DELETE, "/api/v1/events/**").hasAuthority(Permission.EVENTS_DELETE.getPermission())
                 .anyRequest()
                 .authenticated()
                 .and()

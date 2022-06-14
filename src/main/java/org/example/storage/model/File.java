@@ -29,6 +29,7 @@ public class File {
     private Long id;
     @Column(name = "file_name")
     private String fileName;
+    @Column(name = "location")
     private String location;
     @OneToOne
     @JoinColumn(name = "user_id")

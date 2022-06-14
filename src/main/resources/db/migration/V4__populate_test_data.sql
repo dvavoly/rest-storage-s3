@@ -8,17 +8,17 @@ insert into users (first_name, last_name, email, secret_password, user_role)
 # password: user
 values ('Jeanna', 'Gergely', 'u@user.com', '$2a$12$V9p55h8nqArVTzh4Vy3PVerZGANZ.UBog552F/ZrbpWX2vAEQrzTe', 2);
 
-insert into files (fileName, location, user_id)
+insert into files (file_name, location, user_id)
 values ('AcNulla.mp3', 'https://amazon.de/integer/ac/leo/pellentesque/ultrices.html', 1);
-insert into files (fileName, location, user_id)
+insert into files (file_name, location, user_id)
 values ('AliquetPulvinar.mov', 'https://walmart.com/nunc/purus/phasellus/in/felis/donec.jpg', 2);
-insert into files (fileName, location, user_id)
+insert into files (file_name, location, user_id)
 values ('SagittisNamCongue.gif', 'https://bravesites.com/tortor.jpg', 2);
-insert into files (fileName, location, user_id)
+insert into files (file_name, location, user_id)
 values ('Libero.avi', 'https://webs.com/dapibus.jsp', 3);
-insert into files (fileName, location, user_id)
+insert into files (file_name, location, user_id)
 values ('EleifendQuam.txt', 'https://nytimes.com/quisque/ut/erat/curabitur/gravida.png', 3);
-insert into files (fileName, location, user_id)
+insert into files (file_name, location, user_id)
 values ('JustoSollicitudinUt.tiff', 'https://wisc.edu/in.jpg', 3);
 
 insert into events (upload_time, user_id, file_id)

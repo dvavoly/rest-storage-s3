@@ -29,7 +29,7 @@ public class Event {
     @Column(name = "upload_time")
     private LocalDateTime uploadTime;
     @Column(name = "user_id")
-    private Integer userId;
+    private Long userId;
     @Column(name = "file_id")
-    private Integer fileId;
+    private Long fileId;
 }

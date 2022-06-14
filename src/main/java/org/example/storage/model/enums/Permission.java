@@ -5,6 +5,7 @@ public enum Permission {
     USERS_WRITE("users:write"),
     FILES_READ("files:read"),
     FILES_WRITE("files:write"),
+    EVENTS_READ("events:read"),
     EVENTS_DELETE("events:delete");
     private final String permission;
 

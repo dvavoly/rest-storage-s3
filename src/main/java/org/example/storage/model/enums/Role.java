@@ -7,16 +7,17 @@ import java.util.stream.Collectors;
 
 public enum Role {
     ADMIN(Set.of(
-            Permission.USERS_READ,
             Permission.USERS_WRITE,
+            Permission.USERS_READ,
             Permission.FILES_READ,
             Permission.FILES_WRITE,
+            Permission.EVENTS_READ,
             Permission.EVENTS_DELETE)),
     MODERATOR(Set.of(
             Permission.USERS_READ,
             Permission.FILES_READ,
             Permission.FILES_WRITE,
-            Permission.EVENTS_DELETE
+            Permission.EVENTS_READ
     )),
     USER(Set.of(
             Permission.FILES_READ,
