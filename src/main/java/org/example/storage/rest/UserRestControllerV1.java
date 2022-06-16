@@ -37,6 +37,7 @@ public class UserRestControllerV1 {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody User newUser) {
         return userService.save(newUser);
     }
@@ -48,7 +49,7 @@ public class UserRestControllerV1 {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUserById(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
         userService.deleteUserById(id);
     }
 }
