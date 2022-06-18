@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: letmein
+      MYSQL_DATABASE: storage
+    ports:
+      - 3306:3306
+    restart: always

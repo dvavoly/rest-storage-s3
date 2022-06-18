@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
@@ -42,9 +43,18 @@ public class FileService {
     }
 
     public FileDto getFileById(Long fileId) {
-        return fileRepository.findById(fileId)
+        var result = fileRepository.findById(fileId)
                 .map(file -> new FileDto(file.getId(), file.getFileName()))
                 .orElseThrow(() -> new FileNotFoundInStorageException(fileId));
+
+        var user = getUserFromSecurityContext();
+        var key = getS3ObjectKey(user.getEmail(), result.fileName());
+        var getObject = GetObjectRequest.builder() // TODO make file downloadable
+                .bucket(bucket)
+                .key(key)
+                .build();
+
+        return result;
     }
 
     public FileDto uploadFile(MultipartFile file) {

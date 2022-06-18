@@ -1,8 +1,5 @@
 package org.example.storage.rest;
 
-import java.util.List;
-
-import org.example.storage.exception.UserNotFoundByIdException;
 import org.example.storage.model.User;
 import org.example.storage.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -15,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
